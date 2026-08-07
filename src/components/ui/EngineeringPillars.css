@@ -1,0 +1,456 @@
+/* Engineering Pillars Section & Cards Styling */
+
+:root {
+  --pillar-performance: #FF6B6B;
+  --pillar-performance-glow: rgba(255, 107, 107, 0.45);
+  --pillar-performance-bg: rgba(255, 107, 107, 0.08);
+
+  --pillar-architecture: #4ECDC4;
+  --pillar-architecture-glow: rgba(78, 205, 196, 0.45);
+  --pillar-architecture-bg: rgba(78, 205, 196, 0.08);
+
+  --pillar-clarity: #FFD93D;
+  --pillar-clarity-glow: rgba(255, 217, 61, 0.45);
+  --pillar-clarity-bg: rgba(255, 217, 61, 0.08);
+
+  --pillar-motion: #95E1D3;
+  --pillar-motion-glow: rgba(149, 225, 211, 0.45);
+  --pillar-motion-bg: rgba(149, 225, 211, 0.08);
+}
+
+.pillars-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.pillars-network-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.pillars-network-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.pillars-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 900px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Pillar Card */
+.pillar-card {
+  position: relative;
+  background: rgba(18, 18, 22, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease,
+              background 0.4s ease;
+}
+
+/* Specific Pillar Color Themes */
+.pillar-card[data-pillar="performance"] {
+  --theme-color: var(--pillar-performance);
+  --theme-glow: var(--pillar-performance-glow);
+  --theme-bg: var(--pillar-performance-bg);
+}
+
+.pillar-card[data-pillar="architecture"] {
+  --theme-color: var(--pillar-architecture);
+  --theme-glow: var(--pillar-architecture-glow);
+  --theme-bg: var(--pillar-architecture-bg);
+}
+
+.pillar-card[data-pillar="clarity"] {
+  --theme-color: var(--pillar-clarity);
+  --theme-glow: var(--pillar-clarity-glow);
+  --theme-bg: var(--pillar-clarity-bg);
+}
+
+.pillar-card[data-pillar="motion"] {
+  --theme-color: var(--pillar-motion);
+  --theme-glow: var(--pillar-motion-glow);
+  --theme-bg: var(--pillar-motion-bg);
+}
+
+.pillar-card:hover {
+  transform: translateY(-10px) scale(1.015);
+  border-color: var(--theme-color);
+  box-shadow: 
+    0 0 35px var(--theme-glow),
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: linear-gradient(
+    145deg,
+    rgba(25, 25, 32, 0.85),
+    rgba(15, 15, 20, 0.95)
+  );
+}
+
+/* Ambient Radial Glow on Hover */
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    var(--theme-glow) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.pillar-card:hover::before {
+  opacity: 0.15;
+}
+
+/* Top Bar / Header inside Card */
+.pillar-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pillar-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--theme-bg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--theme-color);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pillar-card:hover .pillar-icon-box {
+  background: var(--theme-color);
+  color: #08080a;
+  box-shadow: 0 0 25px var(--theme-glow);
+}
+
+.icon-animated {
+  animation: pillarIconFloat 3.5s ease-in-out infinite;
+  transition: transform 0.6s ease;
+}
+
+.pillar-card:hover .icon-animated {
+  animation: pillarIconRotate 0.6s ease-out;
+  transform: scale(1.15);
+}
+
+@keyframes pillarIconFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes pillarIconRotate {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.25) rotate(180deg); }
+  100% { transform: scale(1.15) rotate(360deg); }
+}
+
+.pillar-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: var(--theme-color);
+  background: var(--theme-bg);
+  border: 1px solid var(--theme-glow);
+  transition: all 0.3s ease;
+}
+
+.pillar-card:hover .pillar-tag {
+  background: var(--theme-color);
+  color: #0a0a0c;
+  box-shadow: 0 0 12px var(--theme-glow);
+}
+
+/* Main Content */
+.pillar-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pillar-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.3px;
+  transition: color 0.3s ease;
+}
+
+.pillar-card:hover .pillar-title {
+  color: var(--theme-color);
+}
+
+.pillar-desc {
+  font-size: 0.95rem;
+  color: #a1a1aa;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Key Metrics Section */
+.pillar-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pillar-metric-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: all 0.3s ease;
+}
+
+.pillar-card:hover .pillar-metric-item {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.metric-value {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--theme-color);
+  font-family: var(--mono);
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: #8e8e93;
+  font-weight: 500;
+}
+
+/* Footer / Expand Button */
+.pillar-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+}
+
+.pillar-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #d1d5db;
+  transition: all 0.3s ease;
+}
+
+.pillar-card:hover .pillar-action-btn {
+  color: var(--theme-color);
+  transform: translateX(4px);
+}
+
+.pillar-action-icon {
+  transition: transform 0.3s ease;
+}
+
+.pillar-card:hover .pillar-action-icon {
+  transform: translateX(4px);
+}
+
+/* Modal Overlay & Card Details */
+.pillar-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: pillarFadeIn 0.3s ease-out forwards;
+}
+
+.pillar-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  background: #111115;
+  border-radius: 24px;
+  border: 1px solid var(--theme-color);
+  box-shadow: 0 0 50px var(--theme-glow), 0 25px 60px rgba(0, 0, 0, 0.8);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-height: 88vh;
+  overflow-y: auto;
+  animation: pillarModalSlideUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@media (max-width: 640px) {
+  .pillar-modal-backdrop {
+    padding: 16px;
+    align-items: flex-end;
+  }
+
+  .pillar-modal-content {
+    padding: 24px 18px;
+    max-height: 85vh;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.pillar-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pillar-modal-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(90deg);
+}
+
+.pillar-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.pillar-modal-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: var(--theme-bg);
+  border: 1px solid var(--theme-color);
+  color: var(--theme-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px var(--theme-glow);
+}
+
+.pillar-modal-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.pillar-modal-subtitle {
+  font-size: 0.9rem;
+  color: var(--theme-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pillar-modal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pillar-modal-section-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pillar-modal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pillar-modal-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  color: #d1d5db;
+  line-height: 1.5;
+}
+
+.pillar-modal-item-icon {
+  color: var(--theme-color);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+@keyframes pillarFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pillarModalSlideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
