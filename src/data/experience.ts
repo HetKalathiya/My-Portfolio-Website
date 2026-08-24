@@ -44,3 +44,48 @@ export const EXPERIENCE_DATA: Experience[] = [
     ]
   }
 ];
+
+export interface Certification {
+  id: string;
+  title: string;
+  issuer: string;
+  year: string;
+  url: string;
+  credentialId?: string;
+}
+
+export const CERTIFICATIONS_DATA: Certification[] = [
+  {
+    id: 'cert-anthropic-claude-101',
+    title: 'Claude 101 Certificate of Completion',
+    issuer: 'Anthropic AI',
+    year: '2026',
+    url: '/Het_Kalathiya_Anthropic_Claude_101_Certificate.pdf'
+  },
+  {
+    id: 'cert-sololearn-javascript',
+    title: 'Introduction to JavaScript',
+    issuer: 'Sololearn',
+    year: '2026',
+    credentialId: 'CC-VFOJ4AYS',
+    url: '/Het_Kalathiya_Introduction_to_JavaScript.pdf'
+  },
+  {
+    id: 'cert-sololearn-c',
+    title: 'Introduction to C',
+    issuer: 'Sololearn',
+    year: '2026',
+    credentialId: 'CC-ZE1IQFPU',
+    url: '/Het_Kalathiya_Introduction_to_C.pdf'
+  },
+  {
+    id: 'cert-sololearn-css',
+    title: 'Introduction to CSS',
+    issuer: 'Sololearn',
+    year: '2026',
+    credentialId: 'CC-OCNFF7FU',
+    url: '/Het_Kalathiya_Introduction_to_CSS.pdf'
+  }
+];
+
+

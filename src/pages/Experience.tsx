@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { MagneticButton } from '../components/ui/MagneticButton';
-import { EXPERIENCE_DATA } from '../data/experience';
+import { EXPERIENCE_DATA, CERTIFICATIONS_DATA } from '../data/experience';
 import {
   Briefcase,
   MapPin,
@@ -332,80 +332,124 @@ export const Experience: React.FC = () => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '24px'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+              gap: '24px',
+              alignItems: 'stretch'
             }}
           >
-            {[
-              {
-                title: 'Claude 101 Certificate of Completion',
-                issuer: 'Anthropic AI',
-                year: '2026',
-                url: '/Het_Kalathiya_Anthropic_Claude_101_Certificate.pdf'
-              }
-            ].map((cert, idx) => (
+            {CERTIFICATIONS_DATA.map((cert, idx) => (
               <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                key={cert.id || idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
+                whileHover={{ y: -4, borderColor: 'rgba(255, 255, 255, 0.28)' }}
                 className="glass-panel"
                 style={{
                   padding: '28px',
                   display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: '16px'
+                  flexDirection: 'column',
+                  height: '100%',
+                  position: 'relative'
                 }}
               >
+                {/* Header Row: Icon & Year Badge */}
                 <div
                   style={{
-                    width: 44,
-                    height: 44,
-                    borderRadius: 12,
-                    backgroundColor: '#ffffff',
-                    color: '#000000',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
+                    justifyContent: 'space-between',
+                    marginBottom: '20px'
                   }}
                 >
-                  <Award size={22} />
+                  <div
+                    style={{
+                      width: 44,
+                      height: 44,
+                      borderRadius: 12,
+                      backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                      border: '1px solid rgba(255, 255, 255, 0.18)',
+                      color: '#ffffff',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
+                    }}
+                  >
+                    <Award size={22} />
+                  </div>
+                  <span
+                    style={{
+                      fontSize: '0.75rem',
+                      color: '#a1a1aa',
+                      fontFamily: 'var(--font-mono)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      padding: '4px 10px',
+                      borderRadius: '20px',
+                      fontWeight: 600
+                    }}
+                  >
+                    {cert.year}
+                  </span>
                 </div>
-                <div style={{ flex: 1 }}>
-                  <h4 style={{ fontSize: '1.1rem', color: '#ffffff', fontWeight: 700, marginBottom: '4px' }}>
+
+                {/* Content Area */}
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  <h4
+                    style={{
+                      fontSize: '1.15rem',
+                      color: '#ffffff',
+                      fontWeight: 700,
+                      marginBottom: '6px',
+                      lineHeight: '1.35',
+                      fontFamily: 'var(--font-display)'
+                    }}
+                  >
                     {cert.title}
                   </h4>
-                  <div style={{ fontSize: '0.88rem', color: '#a1a1aa' }}>{cert.issuer}</div>
-                  <div style={{ fontSize: '0.78rem', color: '#71717a', fontFamily: 'var(--font-mono)', marginTop: '6px' }}>
-                    Issued {cert.year}
+                  <div style={{ fontSize: '0.9rem', color: '#a1a1aa', fontWeight: 500, marginBottom: '8px' }}>
+                    {cert.issuer}
                   </div>
+                  {cert.credentialId && (
+                    <div style={{ fontSize: '0.78rem', color: '#71717a', fontFamily: 'var(--font-mono)' }}>
+                      ID: {cert.credentialId}
+                    </div>
+                  )}
+
+                  {/* Pinned Button at Bottom */}
                   {cert.url && (
-                    <a
-                      href={cert.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        marginTop: '12px',
-                        fontSize: '0.8rem',
-                        fontWeight: 600,
-                        color: '#ffffff',
-                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                        border: '1px solid rgba(255, 255, 255, 0.2)',
-                        padding: '5px 12px',
-                        borderRadius: '6px',
-                        textDecoration: 'none',
-                        transition: 'all 0.2s ease'
-                      }}
-                    >
-                      <FileText size={14} />
-                      <span>View Certificate</span>
-                      <ExternalLink size={12} style={{ opacity: 0.7 }} />
-                    </a>
+                    <div style={{ marginTop: 'auto', paddingTop: '20px' }}>
+                      <motion.a
+                        href={cert.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.14)', borderColor: 'rgba(255, 255, 255, 0.35)' }}
+                        whileTap={{ scale: 0.98 }}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '8px',
+                          width: '100%',
+                          fontSize: '0.85rem',
+                          fontWeight: 600,
+                          color: '#ffffff',
+                          backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                          border: '1px solid rgba(255, 255, 255, 0.18)',
+                          padding: '10px 16px',
+                          borderRadius: '10px',
+                          textDecoration: 'none',
+                          transition: 'all 0.2s ease',
+                          boxSizing: 'border-box'
+                        }}
+                      >
+                        <FileText size={15} />
+                        <span>View Certificate</span>
+                        <ExternalLink size={13} style={{ opacity: 0.7 }} />
+                      </motion.a>
+                    </div>
                   )}
                 </div>
               </motion.div>

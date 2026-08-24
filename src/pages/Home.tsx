@@ -150,8 +150,8 @@ export const Home: React.FC = () => {
                 }}
               >
                 {[
-                  { label: 'Years Exp.', value: '4+' },
-                  { label: 'Projects', value: '25+' },
+                  { label: 'Years Exp.', value: '0' },
+                  { label: 'Projects', value: '2+' },
                   { label: 'Satisfaction', value: '100%' }
                 ].map((stat, idx) => (
                   <div key={idx}>
