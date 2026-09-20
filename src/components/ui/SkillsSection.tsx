@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 import { Background } from './Background';
 import { ParticleSystem } from './ParticleSystem';
 import { SkillOrb } from './SkillOrb';
-import { SkillDetailModal } from './SkillDetailModal';
-import { ALL_SKILLS_DATA, type SkillItem } from '../../data/skills';
+import { ALL_SKILLS_DATA } from '../../data/skills';
 import type { Point2D } from '../../utils/physicsEngine';
 
 export const SkillsSection: React.FC = () => {
@@ -13,7 +12,6 @@ export const SkillsSection: React.FC = () => {
 
   const [mousePos, setMousePos] = useState<Point2D>({ x: 600, y: 300 });
   const [hoveredSkillId, setHoveredSkillId] = useState<string | null>(null);
-  const [selectedSkill, setSelectedSkill] = useState<SkillItem | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [isInViewport, setIsInViewport] = useState<boolean>(false);
 
@@ -138,7 +136,7 @@ export const SkillsSection: React.FC = () => {
                 maxWidth: '620px'
               }}
             >
-              Sentient, interactive floating technology orbs powered by spring physics, brand-accurate colors, and magnetic attraction. Click any orb to view detailed proficiency metrics.
+              Sentient, interactive floating technology orbs powered by spring physics, brand-accurate colors, and magnetic attraction.
             </p>
           </motion.div>
         </div>
@@ -206,14 +204,10 @@ export const SkillsSection: React.FC = () => {
               hoveredSkillId={hoveredSkillId}
               isInViewport={isInViewport}
               onHover={setHoveredSkillId}
-              onClick={setSelectedSkill}
             />
           ))}
         </div>
       </div>
-
-      {/* Interactive Detail Modal on Click */}
-      <SkillDetailModal skill={selectedSkill} onClose={() => setSelectedSkill(null)} />
     </section>
   );
 };

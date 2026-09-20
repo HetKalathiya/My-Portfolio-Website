@@ -6,10 +6,9 @@ import { TechTicker } from '../components/ui/TechTicker';
 import { ProjectCard } from '../components/ui/ProjectCard';
 import { Modal } from '../components/ui/Modal';
 import { MagneticButton } from '../components/ui/MagneticButton';
-import { EngineeringPillars } from '../components/ui/EngineeringPillars';
 import { PROJECTS_DATA } from '../data/projects';
 import type { Project } from '../data/projects';
-import { ArrowRight, Terminal, MapPin, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Terminal, MapPin } from 'lucide-react';
 
 const EASE_APPLE = [0.22, 1, 0.36, 1] as const;
 
@@ -274,8 +273,8 @@ export const Home: React.FC = () => {
                     gap: '6px'
                   }}
                 >
-                  <CheckCircle2 size={14} />
-                  <span>Verified Engineer</span>
+                  {/* <CheckCircle2 size={14} /> */}
+                  {/* <span>Verified Engineer</span> */}
                 </div>
               </div>
             </motion.div>
@@ -321,28 +320,6 @@ export const Home: React.FC = () => {
         </section>
       )}
 
-      {/* Engineering Philosophy Section */}
-      <section
-        className="section-padding"
-        style={{
-          backgroundColor: '#030303',
-          borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-          position: 'relative',
-          zIndex: 2
-        }}
-      >
-        <div className="container">
-          <SectionHeader
-            badge="Core Philosophy"
-            title="ENGINEERING PILLARS"
-            description="Four fundamental standards guiding every line of code and interface design."
-            centered
-          />
-
-          <EngineeringPillars />
-        </div>
-      </section>
 
       {/* Call to Action Banner */}
       <section className="section-padding" style={{ position: 'relative', zIndex: 2 }}>

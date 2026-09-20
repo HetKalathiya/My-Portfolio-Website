@@ -41,7 +41,7 @@ export const PROJECTS_DATA: Project[] = [
     githubUrl: 'https://github.com/HetKalathiya/DermaScan-AI',
     liveUrl: '',
     featured: true,
-    year: '2024'
+    year: '2026'
   },
   {
     id: 'geo-map',
@@ -68,6 +68,6 @@ export const PROJECTS_DATA: Project[] = [
     githubUrl: 'https://github.com/HetKalathiya/Geo_Map',
     liveUrl: '',
     featured: true,
-    year: '2024'
+    year: '2025'
   }
 ];

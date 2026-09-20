@@ -53,7 +53,7 @@ interface SkillOrbProps {
   hoveredSkillId: string | null;
   isInViewport: boolean;
   onHover: (id: string | null) => void;
-  onClick: (skill: SkillItem) => void;
+  onClick?: (skill: SkillItem) => void;
 }
 
 export const SkillOrb: React.FC<SkillOrbProps> = ({
@@ -103,7 +103,7 @@ export const SkillOrb: React.FC<SkillOrbProps> = ({
   const brandGlow = skill.brandColors.glow;
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+    if (onClick && (e.key === 'Enter' || e.key === ' ')) {
       e.preventDefault();
       onClick(skill);
     }
@@ -130,9 +130,9 @@ export const SkillOrb: React.FC<SkillOrbProps> = ({
         {/* Layer 3: Framer Motion Interactive Magnetic & Hover Orb */}
         <motion.div
           ref={orbRef}
-          role="button"
-          tabIndex={0}
-          aria-label={`${skill.name} - ${skill.category} - ${skill.proficiency}% Proficiency`}
+          role={onClick ? 'button' : undefined}
+          tabIndex={onClick ? 0 : undefined}
+          aria-label={`${skill.name} - ${skill.category}`}
           onMouseEnter={() => onHover(skill.id)}
           onMouseLeave={() => onHover(null)}
           onFocus={() => {
@@ -143,8 +143,8 @@ export const SkillOrb: React.FC<SkillOrbProps> = ({
             setIsFocused(false);
             onHover(null);
           }}
-          onClick={() => onClick(skill)}
-          onKeyDown={handleKeyDown}
+          onClick={onClick ? () => onClick(skill) : undefined}
+          onKeyDown={onClick ? handleKeyDown : undefined}
           animate={{
             scale: isHovered ? 1.15 : isAnotherHovered ? 0.94 : 1,
             opacity: isAnotherHovered ? 0.65 : 1,
@@ -162,7 +162,7 @@ export const SkillOrb: React.FC<SkillOrbProps> = ({
             height: `${dimensions.orb}px`,
             borderRadius: '50%',
             position: 'relative',
-            cursor: 'pointer',
+            cursor: onClick ? 'pointer' : 'default',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',

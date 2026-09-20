@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { Copy, Check, Send, MapPin, Clock, AlertCircle } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, TwitterIcon } from '../components/ui/SocialIcons';
+import { GithubIcon, LinkedinIcon, XIcon } from '../components/ui/SocialIcons';
 
 // ─── EmailJS Configuration ──────────────────────────────────────────────────
 // Values are loaded from .env (VITE_ prefix required for Vite to expose them)
-const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID  as string;
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
-const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  as string;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
 
 // ─── EmailJS Template variable mapping ──────────────────────────────────────
 // Your EmailJS template must use these variable names:
@@ -38,14 +38,14 @@ const INITIAL_FORM: FormData = {
 export const Contact: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
-  const [formData, setFormData]   = useState<FormData>(INITIAL_FORM);
-  const [copied, setCopied]       = useState(false);
-  const [status, setStatus]       = useState<FormStatus>('idle');
-  const [errorMsg, setErrorMsg]   = useState<string>('');
+  const [formData, setFormData] = useState<FormData>(INITIAL_FORM);
+  const [copied, setCopied] = useState(false);
+  const [status, setStatus] = useState<FormStatus>('idle');
+  const [errorMsg, setErrorMsg] = useState<string>('');
 
   // ── Copy email to clipboard ──────────────────────────────────────────────
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('hetkalathiya007@gmail.com');
+    navigator.clipboard.writeText('connect.hetkalathiya@gmail.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
@@ -59,7 +59,7 @@ export const Contact: React.FC = () => {
 
     // Check credentials are configured
     if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY ||
-        EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
+      EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
       setErrorMsg(
         'EmailJS is not configured yet. Add your credentials to the .env file ' +
         '(VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY).'
@@ -74,11 +74,11 @@ export const Contact: React.FC = () => {
     try {
       // Template params map to your EmailJS template variables
       const templateParams = {
-        to_name:    'Het Kalathiya',
-        from_name:  formData.name.trim(),
+        to_name: 'Het Kalathiya',
+        from_name: formData.name.trim(),
         from_email: formData.email.trim(),
-        subject:    formData.subject,
-        message:    formData.message.trim()
+        subject: formData.subject,
+        message: formData.message.trim()
       };
 
       await emailjs.send(
@@ -96,7 +96,7 @@ export const Contact: React.FC = () => {
       setErrorMsg(
         msg.includes('412')
           ? 'EmailJS credentials are invalid. Check your Service ID, Template ID, and Public Key.'
-          : `Failed to send message. Please try again or email directly at hetkalathiya007@gmail.com.`
+          : `Failed to send message. Please try again or email directly at connect.hetkalathiya@gmail.com.`
       );
       setStatus('error');
     }
@@ -153,7 +153,7 @@ export const Contact: React.FC = () => {
                   Direct Email Contact
                 </div>
                 <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', wordBreak: 'break-all' }}>
-                  hetkalathiya007@gmail.com
+                  connect.hetkalathiya@gmail.com
                 </div>
 
                 <button
@@ -224,9 +224,9 @@ export const Contact: React.FC = () => {
                 </div>
                 <div style={{ display: 'flex', gap: '12px' }}>
                   {[
-                    { icon: <GithubIcon size={20} />,   label: 'GitHub',   url: 'https://github.com/HetKalathiya' },
+                    { icon: <GithubIcon size={20} />, label: 'GitHub', url: 'https://github.com/HetKalathiya' },
                     { icon: <LinkedinIcon size={20} />, label: 'LinkedIn', url: 'https://www.linkedin.com/in/het-kalathiya-576aa5297/' },
-                    { icon: <TwitterIcon size={20} />,  label: 'Twitter',  url: 'https://x.com/HetKalathiya007' }
+                    { icon: <XIcon size={18} />, label: 'X', url: 'https://x.com/HetKalathiya007' }
                   ].map((soc, idx) => (
                     <a
                       key={idx}

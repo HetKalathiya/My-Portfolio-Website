@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ArrowUp, Mail } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, TwitterIcon } from '../ui/SocialIcons';
+import { GithubIcon, LinkedinIcon, XIcon } from '../ui/SocialIcons';
 import { Logo } from '../ui/Logo';
 
 export const Footer: React.FC = () => {
@@ -188,12 +188,12 @@ export const Footer: React.FC = () => {
                   transition: 'background-color 0.2s, border-color 0.2s'
                 }}
                 className="interactive"
-                aria-label="Twitter"
+                aria-label="X (Twitter)"
               >
-                <TwitterIcon size={20} />
+                <XIcon size={18} />
               </a>
               <a
-                href="mailto:hetkalathiya007@gmail.com"
+                href="mailto:connect.hetkalathiya@gmail.com"
                 style={{
                   width: 42,
                   height: 42,
@@ -213,7 +213,7 @@ export const Footer: React.FC = () => {
               </a>
             </div>
             <p style={{ fontSize: '0.85rem', color: '#71717a' }}>
-              Direct Email: hetkalathiya007@gmail.com
+              Direct Email: connect.hetkalathiya@gmail.com
             </p>
           </div>
         </div>
