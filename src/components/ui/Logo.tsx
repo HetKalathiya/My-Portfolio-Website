@@ -41,7 +41,7 @@ export const LogoMark: React.FC<{ size?: number }> = ({ size = 36 }) => (
           justifyContent: 'center'
         }}
       >
-        {/* Interlocking Geometric HK Monogram SVG */}
+        {/* Geometric HK Monogram SVG with visible H & K */}
         <svg
           width={size * 0.65}
           height={size * 0.65}
@@ -49,44 +49,51 @@ export const LogoMark: React.FC<{ size?: number }> = ({ size = 36 }) => (
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* H Left Column */}
+          {/* Letter H */}
           <path
-            d="M6 6V26"
+            d="M6 8V24"
             stroke="#FFFFFF"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
           />
-          {/* H Middle Bridge */}
           <path
-            d="M6 16H16"
+            d="M6 16H14"
             stroke="#FFFFFF"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
           />
-          {/* Shared H/K Column */}
           <path
-            d="M16 6V26"
+            d="M14 8V24"
             stroke="#FFFFFF"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
           />
-          {/* K Top Diagonal Branch */}
+
+          {/* Letter K */}
           <path
-            d="M16 16L26 6"
+            d="M19 8V24"
             stroke="#FFFFFF"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
           />
-          {/* K Bottom Diagonal Branch */}
           <path
-            d="M16 16L26 26"
+            d="M19 16L26 8"
             stroke="#FFFFFF"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
           />
+          <path
+            d="M19 16L26 24"
+            stroke="#FFFFFF"
+            strokeWidth="2.6"
+            strokeLinecap="round"
+          />
+
           {/* Glowing Accent Dots */}
-          <circle cx="26" cy="6" r="1.8" fill="#FFFFFF" />
-          <circle cx="26" cy="26" r="1.8" fill="#FFFFFF" />
+          <circle cx="6" cy="8" r="1.3" fill="#FFFFFF" />
+          <circle cx="6" cy="24" r="1.3" fill="#FFFFFF" />
+          <circle cx="26" cy="8" r="1.3" fill="#FFFFFF" />
+          <circle cx="26" cy="24" r="1.3" fill="#FFFFFF" />
         </svg>
       </div>
     </div>
