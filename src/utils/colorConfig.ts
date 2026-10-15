@@ -33,6 +33,26 @@ export const TECH_COLORS: Record<string, BrandColorSpec> = {
     secondary: '#0F172A',
     glow: 'rgba(6, 182, 212, 0.6)'
   },
+  html: {
+    primary: '#E34F26',
+    secondary: '#EF652A',
+    glow: 'rgba(227, 79, 38, 0.6)'
+  },
+  html5: {
+    primary: '#E34F26',
+    secondary: '#EF652A',
+    glow: 'rgba(227, 79, 38, 0.6)'
+  },
+  css: {
+    primary: '#1572B6',
+    secondary: '#33A9DC',
+    glow: 'rgba(21, 114, 182, 0.6)'
+  },
+  css3: {
+    primary: '#1572B6',
+    secondary: '#33A9DC',
+    glow: 'rgba(21, 114, 182, 0.6)'
+  },
 
   // Backend
   nodejs: {

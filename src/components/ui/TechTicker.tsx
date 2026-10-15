@@ -5,6 +5,7 @@ const TECH_ITEMS = [
   'React 18',
   'TypeScript',
   'Next.js',
+  'HTML5 & CSS3',
   'Framer Motion',
   'Node.js',
   'GraphQL',

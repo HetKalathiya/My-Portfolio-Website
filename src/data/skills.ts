@@ -100,6 +100,34 @@ export const ALL_SKILLS_DATA: SkillItem[] = [
     description: 'Utility-first CSS styling, custom design tokens, dark mode systems, and responsive layouts.',
     highlights: ['Custom JIT Config', 'Responsive Fluid Typography', 'Design System Integration']
   },
+  {
+    id: 'html5',
+    name: 'HTML5',
+    category: 'Frontend',
+    iconName: 'Layout',
+    proficiency: 98,
+    size: 'lg',
+    entranceDirection: 'bottom',
+    brandColors: getTechColor('html5'),
+    glowColor: getTechColor('html5').primary,
+    borderColor: getTechColor('html5').glow,
+    description: 'Semantic markup, accessible DOM architecture, modern HTML5 APIs, and SEO optimization.',
+    highlights: ['Semantic Structure & SEO', 'ARIA & Web Accessibility', 'Modern Web Standards']
+  },
+  {
+    id: 'css3',
+    name: 'CSS3',
+    category: 'Frontend',
+    iconName: 'Layers',
+    proficiency: 96,
+    size: 'lg',
+    entranceDirection: 'top',
+    brandColors: getTechColor('css3'),
+    glowColor: getTechColor('css3').primary,
+    borderColor: getTechColor('css3').glow,
+    description: 'Advanced responsive layouts, Flexbox & CSS Grid, keyframe animations, and custom styling systems.',
+    highlights: ['CSS Grid & Flexbox Systems', 'Keyframe Animations & Transitions', 'Modern Variables & Fluid Layouts']
+  },
 
   // Backend
   {
