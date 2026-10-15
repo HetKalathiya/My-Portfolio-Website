@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, FileText } from 'lucide-react';
 import { Logo } from '../ui/Logo';
 
 const NAV_ITEMS = [
@@ -114,6 +114,31 @@ export const Navbar: React.FC = () => {
               })}
             </div>
 
+            {/* Resume Button */}
+            <a
+              href="/Het_Kalathiya_Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 14px',
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                color: '#ffffff',
+                border: '1px solid rgba(255, 255, 255, 0.16)',
+                borderRadius: '30px',
+                fontSize: '0.85rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                transition: 'background-color var(--transition-fast), border-color var(--transition-fast)'
+              }}
+              className="interactive"
+            >
+              <FileText size={15} />
+              <span>Resume</span>
+            </a>
+
             {/* Quick Status Pill */}
             <NavLink
               to="/contact"
@@ -204,6 +229,28 @@ export const Navbar: React.FC = () => {
                 {item.label}
               </NavLink>
             ))}
+
+            <a
+              href="/Het_Kalathiya_Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                padding: '14px',
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                color: '#ffffff',
+                border: '1px solid rgba(255, 255, 255, 0.18)',
+                borderRadius: '12px',
+                fontWeight: 600,
+                textDecoration: 'none'
+              }}
+            >
+              <FileText size={18} />
+              <span>Resume (PDF)</span>
+            </a>
 
             <NavLink
               to="/contact"

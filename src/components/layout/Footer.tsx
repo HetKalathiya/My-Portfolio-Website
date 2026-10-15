@@ -111,6 +111,14 @@ export const Footer: React.FC = () => {
               <NavLink to="/contact" style={{ color: '#a1a1aa', fontSize: '0.95rem', transition: 'color 0.2s' }}>
                 Get In Touch
               </NavLink>
+              <a
+                href="/Het_Kalathiya_Resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: '#a1a1aa', fontSize: '0.95rem', transition: 'color 0.2s', textDecoration: 'none' }}
+              >
+                Resume (PDF)
+              </a>
             </div>
           </div>
 

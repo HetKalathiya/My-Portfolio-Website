@@ -8,6 +8,7 @@ interface MagneticButtonProps {
   className?: string;
   href?: string;
   target?: string;
+  download?: boolean | string;
 }
 
 export const MagneticButton: React.FC<MagneticButtonProps> = ({
@@ -15,7 +16,8 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
   onClick,
   variant = 'primary',
   href,
-  target
+  target,
+  download
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -86,7 +88,7 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
 
   if (href) {
     return (
-      <a href={href} target={target} rel={target === '_blank' ? 'noreferrer' : undefined} style={{ textDecoration: 'none', display: 'inline-block' }}>
+      <a href={href} target={target} download={download} rel={target === '_blank' ? 'noreferrer' : undefined} style={{ textDecoration: 'none', display: 'inline-block' }}>
         {content}
       </a>
     );
