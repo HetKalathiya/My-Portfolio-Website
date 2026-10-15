@@ -8,7 +8,7 @@ import { Modal } from '../components/ui/Modal';
 import { MagneticButton } from '../components/ui/MagneticButton';
 import { PROJECTS_DATA } from '../data/projects';
 import type { Project } from '../data/projects';
-import { ArrowRight, Terminal, MapPin, FileText } from 'lucide-react';
+import { ArrowRight, Terminal, MapPin } from 'lucide-react';
 
 const EASE_APPLE = [0.22, 1, 0.36, 1] as const;
 
@@ -127,15 +127,6 @@ export const Home: React.FC = () => {
                     <ArrowRight size={18} />
                   </MagneticButton>
                 </NavLink>
-
-                <MagneticButton
-                  href="/Het_Kalathiya_Resume.pdf"
-                  target="_blank"
-                  variant="secondary"
-                >
-                  <span>Resume (PDF)</span>
-                  <FileText size={18} />
-                </MagneticButton>
 
                 <NavLink to="/contact" style={{ textDecoration: 'none' }}>
                   <MagneticButton variant="secondary">

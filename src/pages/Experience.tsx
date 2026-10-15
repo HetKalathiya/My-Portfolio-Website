@@ -31,16 +31,6 @@ export const Experience: React.FC = () => {
             title="WORK EXPERIENCE"
             description="Track record of engineering roles, internship deliverables, responsive web projects, and verified enterprise credentials."
           />
-          <div style={{ marginTop: '24px' }}>
-            <MagneticButton
-              href="/Het_Kalathiya_Resume.pdf"
-              target="_blank"
-              variant="secondary"
-            >
-              <span>Download Complete Resume (PDF)</span>
-              <FileText size={18} />
-            </MagneticButton>
-          </div>
         </div>
       </section>
 

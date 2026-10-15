@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { SectionHeader } from '../components/ui/SectionHeader';
-import { Copy, Check, Send, MapPin, Clock, AlertCircle, FileText } from 'lucide-react';
+import { Copy, Check, Send, MapPin, Clock, AlertCircle } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, XIcon } from '../components/ui/SocialIcons';
 
 // ─── EmailJS Configuration ──────────────────────────────────────────────────
@@ -256,39 +256,6 @@ export const Contact: React.FC = () => {
                     </a>
                   ))}
                 </div>
-              </div>
-
-              {/* Resume Card */}
-              <div className="glass-panel" style={{ padding: '32px' }}>
-                <div style={{ fontSize: '0.85rem', color: '#71717a', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', marginBottom: '8px' }}>
-                  Curriculum Vitae
-                </div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#ffffff', marginBottom: '16px' }}>
-                  Looking for my full resume?
-                </div>
-                <a
-                  href="/Het_Kalathiya_Resume.pdf"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '10px',
-                    padding: '12px 20px',
-                    borderRadius: '12px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    color: '#ffffff',
-                    fontWeight: 600,
-                    textDecoration: 'none',
-                    transition: 'all 0.2s ease'
-                  }}
-                  className="interactive"
-                >
-                  <FileText size={18} />
-                  <span>View / Download Resume (PDF)</span>
-                </a>
               </div>
             </motion.div>
 
