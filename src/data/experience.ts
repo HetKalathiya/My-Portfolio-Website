@@ -52,9 +52,21 @@ export interface Certification {
   year: string;
   url: string;
   credentialId?: string;
+  badge?: string;
+  score?: string;
 }
 
 export const CERTIFICATIONS_DATA: Certification[] = [
+  {
+    id: 'cert-nptel-iot',
+    title: 'Introduction to Internet of Things',
+    issuer: 'NPTEL (IIT Kharagpur)',
+    year: '2026',
+    credentialId: 'NPTEL26CS161MANUAL0008524',
+    badge: 'Elite',
+    score: '69%',
+    url: '/Het_Kalathiya_NPTEL_IoT_Certificate.pdf'
+  },
   {
     id: 'cert-anthropic-claude-101',
     title: 'Claude 101 Certificate of Completion',

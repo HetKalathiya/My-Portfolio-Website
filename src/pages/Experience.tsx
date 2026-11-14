@@ -379,20 +379,39 @@ export const Experience: React.FC = () => {
                   >
                     <Award size={22} />
                   </div>
-                  <span
-                    style={{
-                      fontSize: '0.75rem',
-                      color: '#a1a1aa',
-                      fontFamily: 'var(--font-mono)',
-                      backgroundColor: 'rgba(255, 255, 255, 0.06)',
-                      border: '1px solid rgba(255, 255, 255, 0.12)',
-                      padding: '4px 10px',
-                      borderRadius: '20px',
-                      fontWeight: 600
-                    }}
-                  >
-                    {cert.year}
-                  </span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    {cert.badge && (
+                      <span
+                        style={{
+                          fontSize: '0.72rem',
+                          color: '#fbbf24',
+                          fontFamily: 'var(--font-mono)',
+                          backgroundColor: 'rgba(245, 158, 11, 0.12)',
+                          border: '1px solid rgba(245, 158, 11, 0.3)',
+                          padding: '3px 9px',
+                          borderRadius: '20px',
+                          fontWeight: 600,
+                          letterSpacing: '0.04em'
+                        }}
+                      >
+                        {cert.badge}
+                      </span>
+                    )}
+                    <span
+                      style={{
+                        fontSize: '0.75rem',
+                        color: '#a1a1aa',
+                        fontFamily: 'var(--font-mono)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                        border: '1px solid rgba(255, 255, 255, 0.12)',
+                        padding: '4px 10px',
+                        borderRadius: '20px',
+                        fontWeight: 600
+                      }}
+                    >
+                      {cert.year}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Content Area */}
@@ -415,6 +434,11 @@ export const Experience: React.FC = () => {
                   {cert.credentialId && (
                     <div style={{ fontSize: '0.78rem', color: '#71717a', fontFamily: 'var(--font-mono)' }}>
                       ID: {cert.credentialId}
+                    </div>
+                  )}
+                  {cert.score && (
+                    <div style={{ fontSize: '0.78rem', color: '#a1a1aa', fontFamily: 'var(--font-mono)', marginTop: '4px' }}>
+                      Score: <span style={{ color: '#e4e4e7', fontWeight: 600 }}>{cert.score}</span>
                     </div>
                   )}
 
