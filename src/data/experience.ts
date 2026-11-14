@@ -58,6 +58,15 @@ export interface Certification {
 
 export const CERTIFICATIONS_DATA: Certification[] = [
   {
+    id: 'cert-microsoft-azure-data-fundamentals',
+    title: 'Microsoft Certified: Azure Data Fundamentals',
+    issuer: 'Microsoft',
+    year: '2026',
+    credentialId: 'LGYX-s4kY',
+    badge: 'Fundamentals',
+    url: '/Het_Kalathiya_Microsoft_Azure_Data_Fundamentals.pdf'
+  },
+  {
     id: 'cert-nptel-iot',
     title: 'Introduction to Internet of Things',
     issuer: 'NPTEL (IIT Kharagpur)',
